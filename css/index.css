@@ -77,129 +77,318 @@ p{
         transform: rotate(-360deg);
     }
 }
-
-.cudroSuperior {
-    padding: 30px;
-    background-color: rgb(10, 33, 82);
-}
-
-.cudroSuperior button {
-    color: white;
-    background-color: #051923;
-    padding: 7px;
-    border-radius: 10px;
-    border: none;
-}
-
-.cudroSuperior button:hover {
-    background-color: rgba(216, 216, 216, 0.4);
-    font-weight: 600;
+/*Inicio | Barra de Navegacion*/
+header {
+    z-index: 999;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 200px;
+    transition: 0.5s ease;
 }
 
 .logo img {
-    width: 90px;
+    height: 90px;
 }
 
-.container {
-    padding-top: 20px;
-    padding-left: 70px;
-    padding-right: 70px;
-    padding-bottom: 10px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+header .navegacion {
+    position: relative;
 }
 
-.menu {
-    list-style: none;
-    display: flex;
-}
-
-.menu li a {
-    font-size: 14px;
-    margin-right: 30px;
-    padding: 10px;
-    transition: all 300ms ease;
-    color: white;
+header .navegacion .navegacion_links a {
+    position: relative;
+    color: black;
     text-decoration: none;
-}
-
-.menu li a:hover {
-    background-color: rgba(57, 58, 59, 0.605);
-}
-
-.banner01 {
-    margin-top: -125px;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-image: linear-gradient(0deg,
-            rgba(0, 0, 0, 0.5),
-            rgba(0, 0, 0, 0.5)), url(../img/conservacion.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+    font-size: 1em;
+    font-weight: 500;
+    margin-left: 30px;
+    transition: 0.2s ease;
     color: white;
+    padding: 10px;
+}
+
+header .navegacion .navegacion_links a:hover {
+    background-color: rgba(3, 96, 251, 0.3);
+    border-radius: 10px;
+    color: #a7ddffac;
+    transform: scale(1.3);
+}
+
+/*Fin | Barra de navegacion*/
+/*Inicio | Banner de la pagina*/
+section {
+    padding: 100px 200px;
+}
+
+.home {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: grey;
+}
+
+.home:before {
+    z-index: 777;
+    content: '';
+    position: absolute;
+    background: rgba(1, 1, 1, 0.5);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.home .contenido {
+    z-index: 888;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.home .contenido h1 {
     background-position: center center;
+    font-size: 4em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    line-height: 95px;
+    margin-bottom: 40px;
+    color: white;
 }
 
-.banner01 h1 {
-     margin-top: 90px;
-     text-align: center;
-     font-size: 60px;
-}
-
-.banner01 h2{
-    font-size: 40px;
-    text-align: center;
-    margin-top: 20px;
-}
-
-.boton_banner{
-    margin-top: 40px;
-    text-align: center;
-}
-
-.boton_banner button{
-    font-size: 16px;
+.home .contenido h1 span {
+    font-size: 1.2em;
     font-weight: 400;
-    border-radius: 20px;
+    color: white;
+}
+
+.home .contenido a {
+    text-decoration: none;
+    color: #067bc3;
+    background-color: white;
+    font-size: 1.5em;
     padding: 15px;
-    border: none;
+    border-radius: 15px;
+    font-weight: 500;
+    border: 2px solid #067bc3;
     transition: all 300ms ease;
 }
 
-.boton_banner button:hover{
-    background-color: #007CC3;
+.home .contenido a:hover {
+    background-color: #067bc3;
     color: white;
 }
 
-.Segmento2{
-    margin-left: 80px;
-    margin-right: 80px;
+.home video {
+    z-index: 000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*Fin | Banner de la pagina*/
+
+
+/*Inicio responsive de la pagina*/
+/*Inicio | Para dispositivos con un maximo de 1040px*/
+@media (max-width: 1040px) {
+    header {
+        padding: 12px 20px;
+    }
+
+    section {
+        padding: 100px 20px;
+    }
+
+    header .navegacion {
+        display: none;
+    }
+
+    header .navegacion.active {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(1, 1, 1, 0.5);
+    }
+
+    header .navegacion .navegacion_links a {
+        color: black;
+        font-size: 1.2em;
+        margin: 20px;
+    }
+
+    header .navegacion .navegacion_links a:hover {
+        background-color: rgba(51, 219, 238, 0.607);
+        color: white;
+    }
+
+    header .navegacion.active .navegacion_links {
+        background: #fff;
+        width: 600px;
+        max-width: 600px;
+        margin: 20px;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 10px;
+        box-shadow: 0 5px 25px rgb(1 1 1 / 20%);
+    }
+
+    .home .contenido h1 {
+        font-size: 3em;
+    }
+
+    .menu_btn {
+        background: url(/img/menu.png)no-repeat;
+        background-size: 30px;
+        background-position: center;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        transition: 0.3 ease;
+    }
+
+    .menu_btn.active {
+        z-index: 999;
+        background: url(/img/menu_x.png) no-repeat;
+        background-size: 25px;
+        background-position: center;
+        transition: 0.3s ease;
+    }
+}
+
+/*Fin | responsive para dispositivoa con un maximo de 1040px*/
+
+/*Inicio | responsibe para dispositivos con maximo de 720px*/
+@media(max-width: 720px) {
+    .home .contenido h1 {
+        line-height: 70px;
+        font-size: 2em;
+        font-weight: 600;
+    }
+}
+
+/*Fin | responsive para dispositivos con maximo de 720px*/
+
+/*Fin del estilos responsive para el banner principal*/
+
+
+/*Incio | Estilos de la seccion de que son los ODS*/
+.Segmento2 {
+    margin-top: 30px;
     margin-bottom: 70px;
+    margin-left: 40px;
+    margin-right: 40px;
 }
 
-.titulo_queSonLosODS{
+.titulo_queSonLosODS {
+    width: 600px;
+    border-bottom: 3px solid #1c8aaa;
+    justify-content: center;
+    margin: auto;
+}
+
+.titulo_queSonLosODS h2 {
+    font-size: 50px;
+    font-weight: 600;
     text-align: center;
-    margin-top: 60px;   
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
-.contenedor_queSonODS{
+.contenedor_queSonODS {
     display: flex;
+    margin-top: 30px;
+    justify-content: space-between;
 }
 
-.img_queSon img{
+.img_queSon img {
     width: 40em;
     border-radius: 20px;
 }
 
-.texto_queSon p{
+.texto_queSon p {
     margin-top: 100px;
     margin-left: 20px;
-   text-align: center;
+    text-align: justify;
+    line-height: 1.9;
 }
+
+/*Fin | Estilos de la seccion de que son los ODS*/
+
+/*Incio | Responsive de la seccion que son los ODS*/
+
+/*Inicio | Responsive para dispositivos con maximo de 1040px*/
+@media(max-width: 1040px) {
+    .contenedor_queSonODS {
+        display: block;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .texto_queSon p {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .img_queSon img {
+        width: 35em;
+    }
+
+}
+/*Fin | Responsive para dispositivos con maximo de 1040px*/
+
+/*Inicio | Responsive para dispostivos con un maximo de 720px*/
+@media(max-width: 720px) {
+    .img_queSon img {
+        width: 20em;
+    }
+
+    .texto_queSon p {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .titulo_queSonLosODS {
+        width: 300px;
+        border-bottom: 3px solid #1c8aaa;
+        justify-content: center;
+        margin: auto;
+    }
+}
+/*Fin | Responsive para dispostivos con un maximo de 720px*/
+
+/*Inicio | Responsive para dispostivos con un maximo de 400px*/
+@media(max-width:400px) {
+    .img_queSon img {
+        width: 16em;
+    }
+
+    .titulo_queSonLosODS {
+        width: 240px;
+        border-bottom: 3px solid #1c8aaa;
+        justify-content: center;
+        margin: auto;
+    }
+}
+/*Fin | Responsive para dispostivos con un maximo de 400px*/
+
+/*Fin | Responsive de la seccion que son los ODS*/
 
 
 .titulo {
