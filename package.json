@@ -1,0 +1,17 @@
+{
+  "name": "webpage_ods06",
+  "version": "1.0.0",
+  "description": "SDG 06 page repository",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1",
+    "nodemon": "^3.1.7"
+  }
+}
