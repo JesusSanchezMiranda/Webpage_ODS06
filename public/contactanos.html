@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ODS Agua limpia y Saneamiento</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/contactanos.css">
+    <link rel="icon" href="icon/Logo_ods06.ico">
+
+<body>
+    <!--Inicio | Header de la pagina con menu de navegacion-->
+    <header>
+        <nav class="nav">
+            <a href="#" class="logo"> <img src="img/LOGO_ODS _06_sinFondo.png" alt="logo eco lluvia solutions"></a>
+            <p class="fecha">Fecha de hoy: <span id="fechaActual"></span></p>
+            <div class="menu_btn"></div>
+            <div class="navegacion">
+                <div class="navegacion_links">
+                    <a href="index.html">INICIO</a>
+                    <a href="ExploraODS06.html">ODS06</a>
+                    <a href="audiovisual.html">AUDIOVISUAL</a>
+                    <a href="quienesSomos.html">¿QUIENES SOMOS?</a>
+                    <a href="contactanos.html">CONTACTANOS</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <script src="js/menuStatico.js"></script>
+    <script src="js/index.js"></script>
+    <!--Fin | Header de la pagina con menu de navegacion-->
+
+
+    <!--INICIO| EStructura para el efcto carga de la pagina-->
+    <div id="loaderCharge" class="section_loader">
+        <div class="loader">
+            <div class="content">
+                <h2>ODS06</h2>
+                <h2>ODS06</h2>
+            </div>
+        </div>
+    </div>
+    <script src="js/efectoCarga.js"></script>
+    <!--FIN | Estructura para el efecto carga de la pagina-->
+
+    <div class="main-container">
+        <section class="partners">
+            <video src="video/video-partners.mp4" autoplay muted loop></video>
+            <div class="contenido">
+                <h1>Contactanos<br></h1>
+            </div>
+        </section>
+
+        <div class="SegmentoPreguntasFrecuentes">
+            <div class="faq-header">Preguntas frecuentes</div>
+
+            <div class="faq-content">
+                <div class="faq-question">
+                    <input id="q1" type="checkbox" class="panel">
+                    <div class="plus">+</div>
+                    <label for="q1" class="panel-title">¿En qué consiste el Objetivo de Desarrollo Sostenible 6?</label>
+                    <div class="panel-content">En el último siglo, la demanda de agua a nivel mundial ha aumentado
+                        debido a la alta tasa de crecimiento demográfico, la rápida urbanización, el desarrollo
+                        económico y las modalidades cambiantes de consumo. Además, esta demanda se intensifica con el
+                        cambio climático y los fenómenos meteorológicos extremos que cada vez son originados con más
+                        frecuencia como sequías e inundaciones.
+
+                        Las sequias en España son un fenómeno recurrente, que, sumado a la sobreexplotación del agua de
+                        ríos y acuíferos, hacen que algunas zonas del sur y este del país presente los niveles más
+                        graves de sobreexplotación de Europa.</div>
+                </div>
+
+                <div class="faq-question">
+                    <input id="q2" type="checkbox" class="panel">
+                    <div class="plus">+</div>
+                    <label for="q2" class="panel-title">¿Cómo pueden las empresas contribuir al ODS 6?</label>
+                    <div class="panel-content">Las empresas pueden contribuir de diferentes maneras al ODS 6. Hay
+                        determinadas empresas cuyo núcleo de negocio está más directamente ligado a este Objetivo, como
+                        las del sector químico o las del sector agroalimentario. No obstante, todas las empresas,
+                        independientemente de su sector, pueden tomar medidas para contribuir a este ODS.</div>
+                </div>
+
+                <div class="faq-question">
+                    <input id="q3" type="checkbox" class="panel">
+                    <div class="plus">+</div>
+                    <label for="q3" class="panel-title">¿Qué buscan las metas del objetivo 6?</label>
+                    <div class="panel-content">El Objetivo de Desarrollo Sostenible (ODS) 6, formulado por el Grupo de
+                        Trabajo Abierto de las Naciones Unidas, plantea una misión ambiciosa, pero viable, para los dos
+                        próximos decenios: “Garantizar la disponibilidad y la gestión sostenible del agua y el
+                        saneamiento para todos”.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!--INICIO | Formulario de donaciones -->
+        <div class="content_general">
+            <div class="container_formulario">
+                <h2>Contribuye con una donanción</h2>
+                <form id="donationForm">
+                    <!-- Información del donante -->
+                    <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" name="name" required>
+                        <div class="error" id="nameError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" name="email" required>
+                        <div class="error" id="emailError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="celphone">Teléfono</label>
+                        <input type="text" id="cellphone" name="cellphone" required>
+                        <div class="error" id="cellphoneError"></div>
+                    </div>
+
+                    <!-- Monto de la donación con botones -->
+                    <div class="form-group">
+                        <label for="amount">Monto de la donación</label>
+                        <div class="amount-buttons" id="amountButtons">
+                            <button type="button" class="amount-button" data-amount="10">$10</button>
+                            <button type="button" class="amount-button" data-amount="20">$20</button>
+                            <button type="button" class="amount-button" data-amount="50">$50</button>
+                            <button type="button" class="amount-button" data-amount="100">$100</button>
+                            <button type="button" class="amount-button" data-amount="200">$200</button>
+                            <button type="button" class="amount-button" data-amount="500">$500</button>
+                            <button type="button" class="amount-button" data-amount="1000">$1000</button>
+                        </div>
+                        <input type="hidden" id="amount" name="amount" required>
+                        <div class="error" id="amountError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="descripcion">Deja un bonito comentario o una sugerencia</label>
+                        <textarea id="descripcion" name="descripcion" maxlength="300"></textarea>
+                    </div>
+
+                    <!-- Información de la tarjeta -->
+                    <h3>Información de la tarjeta</h3>
+                    <div class="card-info-row">
+                        <div class="form-group">
+                            <label for="card_type">Tipo de tarjeta</label>
+                            <select id="card_type" name="card_type" required>
+                                <option value="">Seleccione un tipo</option>
+                                <option value="Debito">Debito</option>
+                                <option value="Credito">Crédito</option>
+                            </select>
+                            <div class="error" id="cardTypeError"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="card_number">Número de tarjeta</label>
+                            <input type="text" id="card_number" name="card_number" required>
+                            <div class="error" id="cardNumberError"></div>
+                        </div>
+                    </div>
+
+                    <div class="card-info-row">
+                        <div class="form-group">
+                            <label for="cvc">CVC</label>
+                            <input type="text" id="cvc" name="cvc" required>
+                            <div class="error" id="cvcError"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="expiration_date">Fecha de expiración</label>
+                            <input type="text" id="expiration_date" name="expiration_date" placeholder="MM/YY" required>
+                            <div class="error" id="expirationDateError"></div>
+                        </div>
+                    </div>
+
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">Acepto los términos y condiciones</label>
+
+
+                    <button type="submit">Enviar Donación</button>
+                </form>
+            </div>
+        </div>
+        <script src="js/validacionesForm.js"></script>
+        <script src="js/fetchForm.js"></script>
+        <!--Archivo cnd para usar sweetalert-->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <!--FIN | Formulario de donaciones -->
+
+        <!--INICIO | Estructura de la sección desarrolladores de la pagina-->
+
+        <div class="title_developers">
+            <h2>Equipo de Desarrollo</h2>
+        </div>
+        <div class="container_developers">
+            <div class="card_developers">
+                <div class="content_developers">
+                    <span></span>
+                    <div class="image_developers">
+                        <img src="img/persona.jpg" alt="">
+                    </div>
+                    <h4>Jesus Sánchez</h4>
+                    <h6>Web Designer</h6>
+                    <p>Desarrollador web Junior con conocimiento medio en lenguajes como HTML, Css Y JavaScript.</p>
+                </div>
+                <div class="links_developers">
+                    <a href="https://www.facebook.com/share/1Cd6BhHXzF/" target="_blank"><i
+                            class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@nautilus_delta?_t=8rQFlSv9hEW&_r=1" target="_blank"><i
+                            class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://github.com/JesusSanchezMiranda" target="_blank"><i
+                            class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+
+            <div class="card_developers">
+                <div class="content_developers">
+                    <span></span>
+                    <div class="image_developers">
+                        <img src="img/persona.jpg" alt="">
+                    </div>
+                    <h4>Luis Rivas</h4>
+                    <h6>Web Designer</h6>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, natus!</p>
+                </div>
+                <div class="links_developers">
+                    <a href="#" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#" target="_blank"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+
+
+            <div class="card_developers">
+                <div class="content_developers">
+                    <span></span>
+                    <div class="image_developers">
+                        <img src="img/persona.jpg" alt="">
+                    </div>
+                    <h4>Leonardo Torres</h4>
+                    <h6>Web Designer</h6>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, natus!</p>
+                </div>
+                <div class="links_developers">
+                    <a href="#" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#" target="_blank"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <!--FIN | Estructura de la sección desarrolladores de la pagina-->
+
+
+        <!-- INICIO | Estructura efecto boton de retorno navegacion-->
+        <div class="go-top-container">
+            <div class="go-top-button">
+                <i class="fas fa-chevron-up"></i>
+            </div>
+        </div>
+        <script src="js/botonRetorno.js"></script>
+        <!-- FIN | Estructura efecto boton de retorno navegacion-->
+
+        <!--INICIO | Footer de ka pagina-->
+
+        <footer class="pie_pagina">
+            <div class="grupo_1">
+                <div class="box">
+                    <figure>
+                        <img src="img/logo_ecolluviaSolution_blanco.png" alt="">
+                    </figure>
+                </div>
+                <div class="box">
+                    <h3>Contactanos</h3>
+                    <a href="#"><i class="fa-solid fa-location-dot"></i>2 de Mayo 437-247. Imperial 15701</a>
+                    <a href="#"><i class="fa-solid fa-phone-volume"></i>+51 923 463 263</a>
+                    <a href="#"><i class="fa-solid fa-envelope"></i>ecolluviasolutions@gmail.com</a>
+                </div>
+                <div class="box">
+                    <h3>Links Rapidos</h3>
+                    <a href="contactanos.html"><i class="fa-solid fa-chevron-right"></i>Equipo de desarrollo</a>
+                    <a href="contactanos.html"><i class="fa-solid fa-chevron-right"></i>Donacion</a>
+                </div>
+                <div class="box_links">
+                    <h3>Siguenos en Nuestras redes</h3>
+                    <div class="links_sociales">
+                        <a href="https://www.facebook.com/?locale=es_LA" target="_blank"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2F&hl=es-es&aa_click=8891933284028179"
+                            target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://x.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoiZXMiLCJteCI6IjIifQ%3D%3D%22%7D"
+                            target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="https://www.tiktok.com/foryou?lang=es" target="_blank"><i
+                                class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyrigtht">
+                <small>Copyrigtht &copy; 2024 <b>Valle Grande</b> - Todos los Derechos Reservados</small>
+            </div>
+        </footer>
+        <!--FIN | footer de la pagina-->
+</body>
+
+</html>

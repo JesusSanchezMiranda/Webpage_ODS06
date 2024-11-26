@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/audiovisual.css">
+    <link rel="stylesheet" href="css/lineatiempo.css">
+    <link rel="stylesheet" href="css/calendario.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="css/mapa.css">
+    <title>Document</title>
+    <link rel="icon" href="icon/Logo_ods06.ico">
+</head>
+
+<body>
+
+    <!--INICIO| EStructura para el efcto carga de la pagina-->
+    <div id="loaderCharge" class="section_loader">
+        <div class="loader">
+            <div class="content">
+                <h2>ODS06</h2>
+                <h2>ODS06</h2>
+            </div>
+        </div>
+    </div>
+    <script src="js/efectoCarga.js"></script>
+    <!--FIN | Estructura para el efecto carga de la pagina-->
+
+  <!--Inicio | Header de la pagina con menu de navegacion-->
+  <header>
+    <nav class="nav">
+        <a href="#" class="logo"> <img src="img/LOGO_ODS _06_sinFondo.png" alt="logo eco lluvia solutions"></a>
+        <p class="fecha">Fecha de hoy: <span id="fechaActual"></span></p>
+        <div class="menu_btn"></div>
+        <div class="navegacion">
+            <div class="navegacion_links">
+                <a href="index.html">INICIO</a>
+                <a href="ExploraODS06.html">ODS06</a>
+                <a href="audiovisual.html">AUDIOVISUAL</a>
+                <a href="quienesSomos.html">¿QUIENES SOMOS?</a>
+                <a href="contactanos.html">CONTACTANOS</a>
+            </div>
+        </div>
+    </nav>
+</header>
+<script src="js/menuStatico.js"></script>
+<script src="js/index.js"></script>
+<!--Fin | Header de la pagina con menu de navegacion-->
+
+    <!--INICIO | Estructura Carrusel Audiovisual-->
+    <section class="home">
+        <video class="video_slides active" src="video/video1_agua.mp4" autoplay muted loop></video>
+        <video class="video_slides" src="video/video2_agua.mp4" autoplay muted loop></video>
+        <video class="video_slides" src="video/video3_agua.mp4" autoplay muted loop></video>
+        <div class="contenido active">
+            <h1>El agua es la fuerza motriz <br>de toda la naturaleza</h1>
+        </div>
+        <div class="contenido">
+            <h1>Cada gota cuenta <br>no desperdiciemos el agua</h1>
+        </div>
+        <div class="contenido">
+            <h1>El agua es un regalo de la <br> naturaleza cuidemosla</h1>
+        </div>
+        <div class="slider_navegacion">
+            <div class="nav_btn active"></div>
+            <div class="nav_btn"></div>
+            <div class="nav_btn"></div>
+        </div>
+    </section>
+    <script src="js/carruselAudiovisual.js"></script>
+    <!--FIN | Esctructura Carrusel Audiovisual-->
+
+
+    <!--INICIO | Estructura de la Galeria de fotos del ODS 06-->
+    <div class="titulo_Galeria">
+        <h2>Galeria de Imagenes de los ODS</h2>
+    </div>
+
+    <div class="container_galeria">
+        <section class="galeria">
+            <div class="image grid">
+                <div class="card">
+                    <div class="img_box">
+                        <img src="img/galeria1.jpg" alt="">
+                    </div>
+                    <div class="image_content">
+                        <h3 class="boton"><i class="fa-solid fa-chevron-up"></i></h3>
+                        <a download="" href="img/galeria1.jpg"><i class="fa-solid fa-download"></i></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="img_box">
+                        <img src="img/galeria2.jpg" alt="">
+                    </div>
+                    <div class="image_content">
+                        <h3 class="boton"><i class="fa-solid fa-chevron-up"></i></h3>
+                        <a download="" href="img/galeria2.jpg"><i class="fa-solid fa-download"></i></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="img_box">
+                        <img src="img/galeria3.jpg" alt="">
+                    </div>
+                    <div class="image_content">
+                        <h3><i class="fa-solid fa-chevron-up"></i></h3>
+                        <a download="" href="img/galeria3.jpg"><i class="fa-solid fa-download"></i></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="img_box">
+                        <img src="img/galeria4.jpg" alt="">
+                    </div>
+                    <div class="image_content">
+                        <h3><i class="fa-solid fa-chevron-up"></i></h3>
+                        <a download="" href="img/galeria4.jpg"><i class="fa-solid fa-download"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="image grid">
+                <div class="card">
+                    <div class="img_box">
+                        <img src="img/galeria5.jpg" alt="">
+                    </div>
+                    <div class="image_content">
+                        <h3 class="boton"><i class="fa-solid fa-chevron-up"></i></h3>
+                        <a download="" href="img/galeria5.jpg"><i class="fa-solid fa-download"></i></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="img_box">
+                        <img src="img/galeria6.jpg" alt="">
+                    </div>
+                    <div class="image_content">
+                        <h3><i class="fa-solid fa-chevron-up"></i></h3>
+                        <a download="" href="img/galeria6.jpg"><i class="fa-solid fa-download"></i></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="img_box">
+                        <img src="img/galeria7.jpg" alt="">
+                    </div>
+                    <div class="image_content">
+                        <h3><i class="fa-solid fa-chevron-up"></i></h3>
+                        <a download="" href="img/galeria7.jpg"><i class="fa-solid fa-download"></i></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="img_box">
+                        <img src="img/galeria8.jpg" alt="">
+                    </div>
+                    <div class="image_content">
+                        <h3><i class="fa-solid fa-chevron-up"></i></h3>
+                        <a download="" href="img/galeria8.jpg"><i class="fa-solid fa-download"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ocultar" id="ocultar">
+                <div class="image grid">
+                    <div class="card">
+                        <div class="img_box">
+                            <img src="img/galeria9.jpg" alt="">
+                        </div>
+                        <div class="image_content">
+                            <h3><i class="fa-solid fa-chevron-up"></i></h3>
+                            <a download="" href="img/galeria9.jpg"><i class="fa-solid fa-download"></i></a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="img_box">
+                            <img src="img/galeria10.jpg" alt="">
+                        </div>
+                        <div class="image_content">
+                            <h3><i class="fa-solid fa-chevron-up"></i></h3>
+                            <a download="" href="img/galeria10.jpg"><i class="fa-solid fa-download"></i></a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="img_box">
+                            <img src="img/galeria11.jpg" alt="">
+                        </div>
+                        <div class="image_content">
+                            <h3><i class="fa-solid fa-chevron-up"></i></h3>
+                            <a download="" href="img/galeria11.jpg"><i class="fa-solid fa-download"></i></a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="img_box">
+                            <img src="img/galeria12.jpg" alt="">
+                        </div>
+                        <div class="image_content">
+                            <h3><i class="fa-solid fa-chevron-up"></i></h3>
+                            <a download="" href="img/galeria12.jpg"><i class="fa-solid fa-download"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="boton_vermas" id="bonto_vermas">Ver Mas</button>
+        </section>
+
+        <div class="popup_image">
+            <span>&times;</span>
+            <img src="img/img3_carrusel.jpg" alt="">
+        </div>
+    </div>
+    <script src="js/galeria.js"></script>
+    <!--FIN | Estructura de la Galeria de fotos del ODS 06-->
+
+    <!--Inicio, calendario-->
+        <div class="main_containerCalendar">
+            <h1>Calendario de ODS 6: Agua Limpia y Saneamiento</h1>
+            <div class="calendar-container">
+            <div class="calendar">
+                <div class="calendar-header">
+                    <button id="prevMonth">❮</button>
+                    <h2 id="monthYear"></h2>
+                    <button id="nextMonth">❯</button>
+                </div>
+                <div class="calendar-days">
+                    <div class="day">Dom</div>
+                    <div class="day">Lun</div>
+                    <div class="day">Mar</div>
+                    <div class="day">Mié</div>
+                    <div class="day">Jue</div>
+                    <div class="day">Vie</div>
+                    <div class="day">Sáb</div>
+                </div>
+                <div id="calendarDates" class="calendar-dates"></div>
+            </div>
+            <div id="infoPanel" class="info-panel">
+                <h3>Día seleccionado</h3>
+                <p id="infoContent">Selecciona una fecha para ver información sobre el ODS 6.</p>
+            </div>
+        </div>
+    </div>
+        <script src="js/calendario.js"></script>
+    <!--Fin del calendario-->
+
+    <!--Linea de Tiempo-->
+        <h1>Línea de Tiempo del ODS 6 - Agua Limpia y Saneamiento</h1>
+    
+        <div class="timeline-container">
+            <div class="timeline">
+                <div class="event">
+                    <p class="date">2010</p>
+                    <p>Informe revela que 2.6 mil millones de personas carecían de saneamiento adecuado.</p>
+                </div>
+                <div class="event">
+                    <p class="date">2015</p>
+                    <p>Se lanzan los ODS y se establece el ODS 6: agua limpia y saneamiento.</p>
+                </div>
+                <div class="event">
+                    <p class="date">2017</p>
+                    <p>Más del 40% de la población mundial enfrenta escasez de agua.</p>
+                </div>
+                <div class="event">
+                    <p class="date">2020</p>
+                    <p>2.200 millones de personas sin acceso a agua potable segura. La pandemia destaca la urgencia del ODS 6.</p>
+                </div>
+                <div class="event">
+                    <p class="date">2021</p>
+                    <p>Informe de la OMS y UNICEF señala la necesidad de inversión en infraestructura.</p>
+                </div>
+                <div class="event">
+                    <p class="date">2023</p>
+                    <p>El progreso sigue siendo insuficiente en áreas rurales. Urgen más recursos.</p>
+                </div>
+                <div class="event">
+                    <p class="date">2030</p>
+                    <p>Meta del ODS 6: garantizar agua potable y saneamiento para todos.</p>
+                </div>
+            </div>
+        </div>
+    
+        <script src="js/lineatiempo.js"></script>
+    <!--Fin de la linea de tiempo-->
+
+    <!--Mapa Interactivo-->
+        <div class="container_mapa">
+            <h1>Mapa Interactivo</h1>
+            
+            <!-- Contenedor del mapa -->
+            <div id="map"></div>
+            
+            <!-- Incluir script de Leaflet -->
+            <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+            <script src="js/mapa.js"></script> <!-- Asegúrate de que este archivo exista y tenga el código correcto -->
+        </div>
+
+    <!--Fin del mapa-->
+
+    <!-- INICIO | Estructura efecto boton de retorno navegacion-->
+    <div class="go-top-container">
+        <div class="go-top-button">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+    </div>
+    <script src="js/botonRetorno.js"></script>
+    <!-- FIN | Estructura efecto boton de retorno navegacion-->
+
+
+    <!--INICIO | Footer de ka pagina-->
+
+    <footer class="pie_pagina">
+        <div class="grupo_1">
+            <div class="box">
+                <figure>
+                    <img src="img/logo_ecolluviaSolution_blanco.png" alt="">
+                </figure>
+            </div>
+            <div class="box">
+                <h3>Contactanos</h3>
+                <a href="#"><i class="fa-solid fa-location-dot"></i>2 de Mayo 437-247. Imperial 15701</a>
+                <a href="#"><i class="fa-solid fa-phone-volume"></i>+51 923 463 263</a>
+                <a href="#"><i class="fa-solid fa-envelope"></i>ecolluviasolutions@gmail.com</a>
+            </div>
+            <div class="box">
+                <h3>Links Rapidos</h3>
+                <a href="contactanos.html"><i class="fa-solid fa-chevron-right"></i>Equipo de desarrollo</a>
+                <a href="contactanos.html"><i class="fa-solid fa-chevron-right"></i>Donacion</a>
+            </div>
+            <div class="box_links">
+                <h3>Siguenos en Nuestras redes</h3>
+                <div class="links_sociales">
+                    <a href="https://www.facebook.com/?locale=es_LA" target="_blank"><i
+                            class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2F&hl=es-es&aa_click=8891933284028179"
+                        target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://x.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoiZXMiLCJteCI6IjIifQ%3D%3D%22%7D"
+                        target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://www.tiktok.com/foryou?lang=es" target="_blank"><i
+                            class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyrigtht">
+            <small>Copyrigtht &copy; 2024 <b>Valle Grande</b> - Todos los Derechos Reservados</small>
+        </div>
+    </footer>
+    <!--FIN | footer de la pagina-->
+
+
+</body>
+
+</html>

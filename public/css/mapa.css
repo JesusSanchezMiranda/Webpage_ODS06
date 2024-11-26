@@ -1,0 +1,25 @@
+.container_mapa {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* Hace que el contenido cubra toda la pantalla */
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    color: #2c3e50;
+}
+
+#map {
+    height: 500px;
+    /* Ajustar la altura del mapa para dejar espacio para el pie de página */
+    width: 100%;
+    margin: 0 auto;
+    flex-grow: 1;
+    /* Asegura que el mapa ocupe el espacio restante */
+}

@@ -1,4 +1,5 @@
 // funcionalidad del carrusel
+var slidesContainer = document.querySelector('.contenedor_general')
 var slides = document.querySelectorAll('.slides');
 var btns = document.querySelectorAll('.btn');
 let currentSlide = 1;
@@ -29,7 +30,7 @@ btns.forEach((btn, i) => {
 // slider autoplay navigation
 
 var repeat = function (activeClass) {
-    let active = document.getElementsByClassName('active');
+    let active = slidesContainer.getElementsByClassName('active');
     let i = 1;
 
 
@@ -51,7 +52,7 @@ var repeat = function (activeClass) {
                 return;
             }
             repeater();
-        }, 20000);
+        }, 10000);
     }
     repeater();
 }

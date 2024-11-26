@@ -7,471 +7,560 @@
     <title>ODS Agua limpia y Saneamiento</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="../css/index.css">
-    <link rel="icon" href="./img/ONU.ico">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="icon" href="icon/Logo_ods06.ico">
 
 <body>
-   
-     <!--Efecto de carga de la pagina-->
-     <div id="loaderCharge" class="section_loader">
+    
+
+        <!--INICIO| EStructura para el efcto carga de la pagina-->
+    <div id="loaderCharge" class="section_loader">
         <div class="loader">
-            <div class="loader_1"></div>
-            <div class="loader_2"></div>
+            <div class="content">
+                <h2>ODS06</h2>
+                <h2>ODS06</h2>
+            </div>
         </div>
     </div>
+    <script src="js/efectoCarga.js"></script>
+    <!--FIN | Estructura para el efecto carga de la pagina-->
 
-
-     <!--Inicio | Header de la pagina con menu de navegacion-->
-   <header>   
-    <a href="#" class="logo"> <img src="./img/LOGO_ODS _06_sinFondo.png" alt="logo eco lluvia solutions"></a>
-    <div class="menu_btn"></div>
-    <div class="navegacion">
-        <div class="navegacion_links">
-            <a href="#">INICIO</a>
-            <a href="/exploraODS06">ODS06</a>
-            <a href="#">AUDIOVISULA</a>
-            <a href="#">CONTRIBUYE</a>
-            <a href="#">CONTACTANOS</a>
+<!--Inicio | Header de la pagina con menu de navegacion-->
+<header>
+    <nav class="nav">
+        <a href="#" class="logo"> <img src="img/LOGO_ODS _06_sinFondo.png" alt="logo eco lluvia solutions"></a>
+        <p class="fecha">Fecha de hoy: <span id="fechaActual"></span></p>
+        <div class="menu_btn"></div>
+        <div class="navegacion">
+            <div class="navegacion_links">
+                <a href="index.html">INICIO</a>
+                <a href="ExploraODS06.html">ODS06</a>
+                <a href="audiovisual.html">AUDIOVISUAL</a>
+                <a href="quienesSomos.html">¿QUIENES SOMOS?</a>
+                <a href="contactanos.html">CONTACTANOS</a>
+            </div>
         </div>
-    </div>
+    </nav>
 </header>
- <!--Fin | Header de la pagina con menu de navegacion-->
+<script src="js/menuStatico.js"></script>
+<!--Fin | Header de la pagina con menu de navegacion-->
 
   <!--Inicio | Banner principal de la pagina-->
 <section class="home">
-    <video src="./img/video-principalODS06.mp4" autoplay muted loop></video>
+    <video src="video/video-principalODS06.mp4" autoplay muted loop></video>
     <div class="contenido">
         <h1>Transformar nuestro mundo<br> <span>|ODS 06|</span></h1>
-        <a href="#">Explora</a>
+        <a href="#Que_sonLosODS">Explora</a>
     </div>
 </section>
+<!--FIN | Banner principal de la pagina-->
 
-<div class="Segmento2">
-    <div class="titulo_queSonLosODS">
-        <h2>¿Qué son los ODS?</h2>
+<script>
+    $(document).ready(function() {
+        const fechasCivicasContainer = $('#fechas-civicas-list');
+
+        // Datos simulados de fechas cívicas
+        const fechasCivicas = [
+            {
+                fecha: '2024-11-01',
+                nombre_celebracion: 'Día de Todos los Santos',
+                tipo: 'Cívico',
+                responsable: 'Gobierno Local',
+                descripcion: 'Celebración en honor a todos los santos.'
+            },
+            {
+                fecha: '2024-12-08',
+                nombre_celebracion: 'Inmaculada Concepción',
+                tipo: 'Religioso',
+                responsable: 'Iglesia Católica',
+                descripcion: 'Fiesta en honor a la Virgen María.'
+            }
+        ];
+
+        // Función para cargar las fechas cívicas
+        function cargarFechasCivicas() {
+            fechasCivicasContainer.empty(); // Limpiar el contenido anterior
+
+            if (fechasCivicas.length > 0) {
+                // Hay fechas cívicas
+                fechasCivicas.forEach(fecha => {
+                    const fechaCivica = new Date(fecha.fecha);
+                    const fechaFormateada = fechaCivica.toLocaleDateString('es-PE', {
+                        weekday: 'long',
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    });
+
+                    const fechaElement = $('<div>').append(
+                        $('<p>').html(
+                            `Hoy ${fechaFormateada} es:`
+                        ),
+                        // Agrega un contenedor para la descripción y un botón "Ver más"
+                        $('<div>').addClass('descripcion-container').append(
+                            $('<p>').html(`<strong>Nombre de la celebración:</strong> ${fecha.nombre_celebracion}`),
+                            $('<p>').html(`<strong>Tipo:</strong> ${fecha.tipo}`),
+                            $('<p>').html(`<strong>Responsable:</strong> ${fecha.responsable}`),
+                            $('<p>').html(`<strong>Descripción:</strong> ${fecha.descripcion}`).hide(),
+                            $('<button>').text('Ver más').addClass('ver-mas-btn')
+                        )
+                    );
+
+                    // Agrega el evento click al botón "Ver más"
+                    fechaElement.find('.ver-mas-btn').on('click', function() {
+                        // Muestra la descripción al hacer clic en "Ver más"
+                        fechaElement.find('.descripcion-container p').toggle();
+                    });
+
+                    fechasCivicasContainer.append(fechaElement);
+                });
+            } else {
+                // No hay fechas cívicas
+                const mensajeElement = $('<p>').text('No hay fechas cívicas futuras.');
+                fechasCivicasContainer.append(mensajeElement);
+            }
+        }
+
+        cargarFechasCivicas(); // Cargar las fechas cívicas al cargar la página
+    });
+</script>
+
+<div id="Que_sonLosODS">
+    <div class="Segmento2">
+        <div class="titulo_queSonLosODS">
+            <h2>¿Qué son los ODS?</h2>
     </div>
     <div class="contenedor_queSonODS">
         <div class="img_queSon">
-            <img src="./img/3que-son-ODS.jpg" alt="Imagen de que son los ODS">
+            <img src="img/3que-son-ODS.jpg" alt="Imagen de que son los ODS">
         </div>
         <div class="texto_queSon">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat distinctio sint facere ad eos iste
-                praesentium repudiandae inventore itaque culpa dolores corporis iusto, commodi voluptatum
-                consequuntur illo, numquam natus beatae autem sapiente obcaecati tempore. Hic dolores laudantium
-                quasi modi qui voluptate autem asperiores, fugiat dicta ut temporibus quia porro natus commodi,
-                incidunt alias sunt aliquam magni error expedita molestias excepturi!</p>
+            <p>Los Objetivos de Desarrollo Sostenible (ODS), también conocidos como Objetivos Globales, fueron adoptados por las
+            Naciones Unidas en 2015 como un llamamiento universal para poner fin a la pobreza, proteger el planeta y garantizar que
+            para el 2030 todas las personas disfruten de paz y prosperidad.</p>
+            <br>
+            <p>Los 17 ODS están integrados: reconocen que la acción en un área afectará los resultados en otras áreas y que el
+                desarrollo debe equilibrar la sostenibilidad social, económica y ambiental. Los países se han comprometido a
+                priorizar el progreso de los más rezagados.</p>
+            </div>
         </div>
     </div>
 </div>
 
-<script src="/JS/index.js"></script>
+<script src="js/index.js"></script>
  <!--Fin | Banner principal de la pagina-->
 
 
-        <div class="Segmento3">
-            <div class="tittulo-17-ODS">
-                <h2>Los 17 ODS <img src="./img/ODS-17.png" height="60" width="60" style="margin-bottom: -8px;"></h2>
-            </div>
+
+        <!--Inicio | Los 17 oDS-->
+   <div class="titulo_ODS">
+    <h2 >Los 17 ODS</h2>
+ <div class="gif_ODS">
+     <img src="img/gif-ods.gif" alt="">
+ </div>
+</div>
+
+<!--Primera seccion ODS del 1 al 4-->
+ <div class="fila">
+     <div class="carta">
+         <div class="face front">
+             <img src="img/fin-pobreza.jpg" alt="">
+             <h3 class="title_ODS1">Fin de la <br> pobreza<i class="fa-solid fa-people-roof"></i></h3>
+         </div>
+         <div class="face back">
+             <h3>Mas informacion sobre el ODS 1</h3>
+             <div class="text">
+                 <p>El Objetivo de Desarrollo Sostenible 1 busca erradicar la pobreza extrema para todas las
+                     personas en todo el mundo para 2030.</p>
+             </div>
+         </div>
+     </div>
+
+     <div class="carta">
+         <div class="face front">
+             <img src="img/hambre-ceo.jpg" alt="">
+             <h3 class="title_ODS2">Hambre <br> cero<i class="fa-solid fa-plate-wheat"></i></h3>
+         </div>
+         <div class="face back">
+             <h3>Mas informacion sobre el ODS 2</h3>
+             <div class="text">
+                 <p>El Objetivo de Desarrollo Sostenible 2 busca un mundo libre de hambre y malnutricion para
+                     el
+                     2030.</p>
+             </div>
+         </div>
+     </div>
+
+     <div class="carta">
+         <div class="face front">
+             <img src="img/salud.jpg" alt="">
+             <h3 class="title_ODS3">Salud y <br> bienestar<i class="fa-solid fa-heart-pulse"></i></h3>
+         </div>
+         <div class="face back">
+             <h3>Mas informacion sobre el ODS 3</h3>
+             <div class="text">
+                 <p>El Objetivo de Desarrollo Sostenible 3 busca garantizar una vida saludable y
+                     promover
+                     el
+                     bienestar para todos.</p>
+             </div>
+         </div>
+     </div>
 
 
-            <!-- Contenedor estilo carta de los 17 ODA-->
-            <div class="container01-17">
-                <!-- Carta del ODS 01-04-->
-                <div class="fila">
-                    <!-- ODS 01-->
-                    <div class="tarjeta">
-                        <div class="frente">
-                            <img src="./img/fin-pobreza.jpg" style="width: 300px; height: 125px;">
-                            <div class="texto01">
-                                <h2>1 Fin de la pobreza<i class="fa-solid fa-people-roof"></i></h2>
-                            </div>
-                        </div>
-                        <div class="atras">
-                            <h2>Más información sobre el ODS 1</h2>
-                            <p>El Objetivo de Desarrollo Sostenible 1 busca erradicar la pobreza extrema para todas las
-                                personas en todo el mundo para 2030.</p>
-                        </div>
-                    </div>
+     <div class="carta">
+         <div class="face front">
+             <img src="img/educacion-calidad.jpg" alt="">
+             <h3 class="title_ODS4">Educación de <br> calidad<i class="fa-solid fa-book"></i></h3>
+         </div>
+         <div class="face back">
+             <h3>Mas informacion sobre el ODS 4</h3>
+             <div class="text">
+                 <p>El Objetivo de Desarrollo Sostenible 4 busca garantizar una educación de calidad,
+                     inclusiva y
+                     equitativa.</p>
+             </div>
+         </div>
+     </div>
 
-                    <!-- ODS 02-->
-                    <div class="tarjeta">
-                        <div class="frente">
-                            <img src="./img/hambre-ceo.jpg" style="width: 300px; height: 125px;">
-                            <div class="texto02">
-                                <h2>2 Hambre cero<i class="fa-solid fa-plate-wheat"></i></h2>
-                            </div>
-                        </div>
-                        <div class="atras">
-                            <h2>Más información sobre el ODS 2</h2>
-                            <p>El Objetivo de Desarrollo Sostenible 2 busca un mundo libre de hambre y malnutricion para
-                                el
-                                2030.
-                            </p>
-                        </div>
-                    </div>
+ </div>
 
-                    <!-- ODS 03-->
-                    <div class="tarjeta">
-                        <div class="frente">
-                            <img src="./img/salud.jpg" style="width: 300px; height: 125px;">
-                            <div class="texto03">
-                                <h2>3 Salud y bienestar<i class="fa-solid fa-heart-pulse"></i></h2>
-                            </div>
-                        </div>
-                        <div class="atras">
-                            <h2>Más información sobre el ODS 3</h2>
-                            <p>El Objetivo de Desarrollo Sostenible 3 busca garantizar una vida saludable y
-                                promover
-                                el
-                                bienestar para todos.</p>
-                        </div>
-                    </div>
+<!--Fin de la seccion de los ODS 1 al 4-->
 
-                    <!-- ODS 04-->
-                    <div class="tarjeta">
-                        <div class="frente">
-                            <img src="./img/educacion-calidad.jpg" style="width: 300px; height: 125px;">
-                            <div class="texto04">
-                                <h2>4 Educación de calidad<i class="fa-solid fa-book"></i></h2>
-                            </div>
-                        </div>
-                        <div class="atras">
-                            <h2>Más información sobre el ODS 4</h2>
-                            <p>El Objetivo de Desarrollo Sostenible 4 busca garantizar una educación de calidad,
-                                inclusiva y
-                                equitativa.</p>
-                        </div>
-                    </div>
-                </div>
+<!--Segunda seccion ODS del 5 al 8-->
+ <div class="fila">
+     <div class="carta">
+         <div class="face front">
+             <img src="img/igualdad-genero.jpg" alt="">
+             <h3 class="title_ODS5">Igualdad de <br> genero<i class="fa-solid fa-venus-mars"></i></h3>
+         </div>
+         <div class="face back">
+             <h3>Mas informacion sobre el ODS 5</h3>
+             <div class="text">
+                 <p>El Objetivo de Desarrollo Sostenible 5 busca lograr la igualdad entre los generos, como
+                     derecho fundamental para construir un mundo pacifico, próspero y sostenible.</p>
+             </div>
+         </div>
+     </div>
 
-                <!-- Carta del ODS 05-08-->
-                <div class="fila">
-                    <!-- ODS 05-->
-                    <div class="tarjeta">
-                        <div class="frente">
-                            <img src="./img/igualdad-genero.jpg" style="width: 300px; height: 155px;">
-                            <div class="texto05">
-                                <h2>5 Igualdad de genero<i class="fa-solid fa-venus-mars"></i></h2>
-                            </div>
-                        </div>
-                        <div class="atras">
-                            <h2>Más información sobre el ODS 5</h2>
-                            <p>El Objetivo de Desarrollo Sostenible 5 busca lograr la igualdad entre los generos, como
-                                derecho fundamental para construir un mundo pacifico, próspero y sostenible.</p>
-                        </div>
-                    </div>
+     <div class="carta">
+         <div class="face front">
+             <img src="img/agua.jpg" alt="">
+             <h3 class="title_ODS6">Agua limpia y <br> Saneamiento<i class="fa-solid fa-droplet"></i></h3>
+         </div>
+         <div class="face back">
+             <h3>Mas informacion sobre el ODS 6</h3>
+             <div class="text">
+                 <p>El Objetivo de Desarrollo Sostenible 6 busca que todas las personas tengan acceso
+                     al agua potable, el saneamiento y la higiene como derecho humano basico
+                     para el cuidado de la salud y el bienestar.
+             </div>
+         </div>
+     </div>
 
-                    <!-- ODS 06-->
-                    <div class="tarjeta">
-                        <div class="frente">
-                            <img src="./img/agua.jpg" style="width: 300px; height: 125px;">
-                            <div class="texto06">
-                                <h2>6 Agua limpia y <br> Saneamiento<i class="fa-solid fa-droplet"></i></h2>
-                            </div>
-                        </div>
-                        <div class="atras">
-                            <h2>Más información sobre el ODS 6</h2>
-                            <p>El Objetivo de Desarrollo Sostenible 6 busca que todas las personas tengan acceso
-                                al agua potable, el saneamiento y la higiene como derecho humano basico
-                                para el cuidado de la salud y el bienestar.
-                            </p>
-                        </div>
-                    </div>
+     <div class="carta">
+         <div class="face front">
+             <img src="img/energia.jpg" alt="">
+             <h3 class="title_ODS7">Energia acequible y <br>no contaminante<i class="fa-solid fa-sun-plant-wilt"></i></h3>
+         </div>
+         <div class="face back">
+             <h3>Mas informacion sobre el ODS 7</h3>
+             <div class="text">
+                 <p>El Objetivo de Desarrollo Sostenible 7 garantiza el acceso a una energía limpia y
+                     asequible,
+                     clave para el desarrollo de la agricultura, las empresas, las comunicaciones, la
+                     educación,
+                     la sanida
+                     y el transporte.
+                 </p>
+             </div>
+         </div>
+     </div>
 
-                    <!-- ODS 07-->
-                    <div class="tarjeta">
-                        <div class="frente">
-                            <img src="./img/energia.jpg" style="width: 300px; height: 125px;">
-                            <div class="texto07">
-                                <h2>7 Energia acequible y no contaminante<i class="fa-solid fa-sun-plant-wilt"></i></h2>
-                            </div>
-                        </div>
-                        <div class="atras">
-                            <h2>Más información sobre el ODS 7</h2>
-                            <p>El Objetivo de Desarrollo Sostenible 7 garantiza el acceso a una energía limpia y
-                                asequible,
-                                clave para el desarrollo de la agricultura, las empresas, las comunicaciones, la
-                                educación,
-                                la sanida
-                                y el transporte.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- ODS 08-->
-                    <div class="tarjeta">
-                        <div class="frente">
-                            <img src="./img/trabajo.jpg" style="width: 300px; height: 125px;">
-                            <div class="texto08">
-                                <h2>8 Tabajo decente y crecimiento economico<i class="fa-solid fa-chart-line"></i></h2>
-                            </div>
-                        </div>
-                        <div class="atras">
-                            <h2>Más información sobre el ODS 8</h2>
-                            <p>El Objetivo de Desarrollo Sostenible 8 promueve el crecimiento económico inclusivo y
-                                sostenible,
-                                el emplo y el trabajo decente para todas las personas.
-                            </p>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Carta del ODS 09-12-->
-                <div class="fila">
-                    <!-- ODS 09-->
-                    <div class="tarjeta">
-                        <div class="frente">
-                            <img src="./img/industria.jpg" style="width: 300px; height: 125px;">
-                            <div class="texto09">
-                                <h2>9 Industria, Innovacion e infraestructura<i class="fa-solid fa-cubes"></i></h2>
-                            </div>
-                        </div>
-                        <div class="atras">
-                            <h2>Más información sobre el ODS 9</h2>
-                            <p>El Objetivo de Desarrollo Sostenible 9 pretende construir infraestructuras resilientes,
-                                promover la industrialización sostenible y fomentar la innovación.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- ODS 10-->
-                    <div class="tarjeta">
-                        <div class="frente">
-                            <img src="./img/reduccion-desigualdades.jpg" style="width: 300px; height: 125px;">
-                            <div class="texto10">
-                                <h2>10 Reduccion de las desigualdades<i class="fa-solid fa-equals"></i></h2>
-                            </div>
-                        </div>
-                        <div class="atras">
-                            <h2>Más información sobre el ODS 10</h2>
-                            <p>El Objetivo de Desarrollo Sostenible 10 busca reducir las desigualdades, ya que
-                                estas amenazan el desarrollo social y económico a largo plazo, frena la reduccion de
-                                pobreza y destruye el sentido de la realización.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- ODS 11-->
-                    <div class="tarjeta">
-                        <div class="frente">
-                            <img src="./img/ciudades.jpg" style="width: 300px; height: 125px;">
-                            <div class="texto11">
-                                <h2>11 Ciudades y Comunidades sostenibles<i class="fa-solid fa-sun-plant-wilt"></i></h2>
-                            </div>
-                        </div>
-                        <div class="atras">
-                            <h2>Más información sobre el ODS 11</h2>
-                            <p>El Objetivo de Desarrollo Sostenible 11 pretende lograr que las ciudades
-                                y los asentamientos humanos sean inclusivos, seguros, resilientes y sostenibles.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- ODS 12-->
-                    <div class="tarjeta">
-                        <div class="frente">
-                            <img src="./img/consumo-responsable.jpg" style="width: 300px; height: 125px;">
-                            <div class="texto12">
-                                <h2>12 Produccion y comsumo responsable<i class="fa-solid fa-chart-line"></i></h2>
-                            </div>
-                        </div>
-                        <div class="atras">
-                            <h2>Más información sobre el ODS 12</h2>
-                            <p>El Objetivo de Desarrollo Sostenible 12 pretende garantizar modalidaes de consumo y
-                                producción
-                                sostenible, algo fundamental para sostener los medios de subsistencia de las
-                                generaciones
-                                actuales y futuras.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+     <div class="carta">
+         <div class="face front">
+             <img src="img/trabajo.jpg" alt="">
+             <h3 class="title_ODS8">Tabajo decente y crecimiento economico<i class="fa-solid fa-chart-line"></i></h3>
+         </div>
+         <div class="face back">
+             <h3>Mas informacion sobre el ODS 8</h3>
+             <div class="text">
+                 <p>El Objetivo de Desarrollo Sostenible 8 promueve el crecimiento económico inclusivo y
+                     sostenible,
+                     el emplo y el trabajo decente para todas las personas.
+                 </p>
+             </div>
+         </div>
+     </div>
+ </div>
+ <!--Fin de la seccion de los ODS 5 al 8-->
 
-                <!-- Carta del ODS 13-16-->
-                <div class="fila">
-                    <!-- ODS 13-->
-                    <div class="tarjeta">
-                        <div class="frente">
-                            <img src="./img/acciones-clima.jpeg" style="width: 300px; height: 125px;">
-                            <div class="texto13">
-                                <h2>13 Acciones por <br> el clima<i class="fa-solid fa-earth-asia"></i></h2>
-                            </div>
-                        </div>
-                        <div class="atras">
-                            <h2>Más información sobre el ODS 13</h2>
-                            <p>El Objetivo de Desarrollo Sostenible 13 busca reducir el cambio climatico producido
-                                por las actividades humanas y reducir la mitad del calentamiento global para el 2030.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- ODS 14-->
-                    <div class="tarjeta">
-                        <div class="frente">
-                            <img src="./img/vida-submarina.jpg" style="width: 300px; height: 125px;">
-                            <div class="texto14">
-                                <h2>14 Vida <br> Submarina<i class="fa-solid fa-fish-fins"></i></h2>
-                            </div>
-                        </div>
-                        <div class="atras">
-                            <h2>Más información sobre el ODS 14</h2>
-                            <p>El Objetivo de Desarrollo Sostenible 14 pretende conservar y utilizar sosteniblemente
-                                los óceanosm, los mares y los recurso marinos.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- ODS 15-->
-                    <div class="tarjeta">
-                        <div class="frente">
-                            <img src="./img/vida-terrestre.png" style="width: 300px; height: 125px;">
-                            <div class="texto15">
-                                <h2>15 Vida de ecosistemas <br>terrestres<i class="fa-solid fa-tree"></i></h2>
-                            </div>
-                        </div>
-                        <div class="atras">
-                            <h2>Más información sobre el ODS 15</h2>
-                            <p>El Objetivo de Desarrollo Sostenible 15 pretende conservar la vida de ecosistemas
-                                terrestres,
-                                proteger y restablecer los
-                                ecosistemas, gestionar sosteniblemente los bosques y lucahr contra la deforestación.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- ODS 16-->
-                    <div class="tarjeta">
-                        <div class="frente">
-                            <img src="./img/paz-justicia.jpg" style="width: 300px; height: 125px;">
-                            <div class="texto16">
-                                <h2>16 Paz, justicia e instituciones solidas<i class="fa-solid fa-dove"></i></h2>
-                            </div>
-                        </div>
-                        <div class="atras">
-                            <h2>Más información sobre el ODS 16</h2>
-                            <p>El Objetivo de Desarrollo Sostenible 16 pretende pormover sociedades pacificas e
-                                inclusivas,
-                                facilitar el acceso a la justicia para toda la población y crear instituciones eficaces.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+<!--Tercera seccion ODS del 9 al 12-->
+ <div class="fila">
+     <div class="carta">
+         <div class="face front">
+             <img src="img/industria.jpg" alt="">
+             <h3 class="title_ODS9">Industria, Innovacion e <br> infraestructura<i class="fa-solid fa-cubes"></i></h3>
+         </div>
+         <div class="face back">
+             <h3>Mas informacion sobre el ODS 9</h3>
+             <div class="text">
+                 <p>El Objetivo de Desarrollo Sostenible 9 pretende construir infraestructuras resilientes,
+                     promover la industrialización sostenible y fomentar la innovación.
+                 </p>
+             </div>
+         </div>
+     </div>
 
-                <!-- Carta del ODS 17-->
-                <div class="fila">
-                    <!-- ODS 17-->
-                    <div class="tarjeta">
-                        <div class="frente">
-                            <img src="./img/alianzas.jpg" style="width: 300px; height: 125px;">
-                            <div class="texto17">
-                                <h2>17 Alianzas para lograr los objetivos<i class="fa-solid fa-earth-asia"></i></h2>
-                            </div>
-                        </div>
-                        <div class="atras">
-                            <h2>Más información sobre el ODS 4</h2>
-                            <p>El Objetivo de Desarrollo Sostenible 17 pretende revitalizar la alianza
-                                mundial para el desarrollo sostenible y exige la implicación de todos los paises,
-                                para que nadie se quede atras.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+     <div class="carta">
+         <div class="face front">
+             <img src="img/reduccion-desigualdades.jpg" alt="">
+             <h3 class="title_ODS10">Reduccion de las <br> desigualdades<i class="fa-solid fa-equals"></i></h3>
+         </div>
+         <div class="face back">
+             <h3>Mas informacion sobre el ODS 10</h3>
+             <div class="text">
+                 <p>El Objetivo de Desarrollo Sostenible 10 busca reducir las desigualdades, ya que
+                     estas amenazan el desarrollo social y económico a largo plazo, frena la reduccion de
+                     pobreza y destruye el sentido de la realización.
+                 </p>
+             </div>
+         </div>
+     </div>
 
-            </div>
+     <div class="carta">
+         <div class="face front">
+             <img src="img/ciudades.jpg" alt="">
+             <h3 class="title_ODS11">Ciudades y Comunidades <br>sostenibles<i class="fa-solid fa-sun-plant-wilt"></i></h3>
+         </div>
+         <div class="face back">
+             <h3>Mas informacion sobre el ODS 11</h3>
+             <div class="text">
+                 <p>El Objetivo de Desarrollo Sostenible 11 pretende lograr que las ciudades
+                     y los asentamientos humanos sean inclusivos, seguros, resilientes y sostenibles.
+                 </p>
+             </div>
+         </div>
+     </div>
+
+     <div class="carta">
+         <div class="face front">
+             <img src="img/consumo-responsable.jpg" alt="">
+             <h3 class="title_ODS12">Produccion y comsumo <br>responsable<i class="fa-solid fa-chart-line"></i></h3>
+         </div>
+         <div class="face back">
+             <h3>Mas informacion sobre el ODS 12</h3>
+             <div class="text">
+                 <p>El Objetivo de Desarrollo Sostenible 12 pretende garantizar modalidaes de consumo y
+                     producción
+                     sostenible, algo fundamental para sostener los medios de subsistencia de las
+                     generaciones
+                     actuales y futuras.
+                 </p>
+             </div>
+         </div>
+     </div>
+ </div>
+ <!--Fin de la seccion de los ODS 9 al 12-->
+
+<!--Cuarta seccion ODS del 13 al 16-->
+ <div class="fila">
+     <div class="carta">
+         <div class="face front">
+             <img src="img/acciones-clima.jpeg" alt="">
+             <h3 class="title_ODS13">Acciones por <br> el clima<i class="fa-solid fa-cloud"></i></h3>
+         </div>
+         <div class="face back">
+             <h3>Mas informacion sobre el ODS 13</h3>
+             <div class="text">
+                 <p>El Objetivo de Desarrollo Sostenible 13 busca reducir el cambio climatico producido
+                     por las actividades humanas y reducir la mitad del calentamiento global para el 2030.
+                 </p>
+             </div>
+         </div>
+     </div>
+
+     <div class="carta">
+         <div class="face front">
+             <img src="img/vida-submarina.jpg" alt="">
+             <h3 class="title_ODS14">Vida <br> Submarina<i class="fa-solid fa-fish-fins"></i></h3>
+         </div>
+         <div class="face back">
+             <h3>Mas informacion sobre el ODS 14</h3>
+             <div class="text">
+                 <p>El Objetivo de Desarrollo Sostenible 14 pretende conservar y utilizar sosteniblemente
+                     los óceanosm, los mares y los recurso marinos.
+                 </p>
+             </div>
+         </div>
+     </div>
+
+     <div class="carta">
+         <div class="face front">
+             <img src="img/vida-terrestre.png" alt="">
+             <h3 class="title_ODS15">Vida de ecosistemas <br>terrestres<i class="fa-solid fa-tree"></i></h3>
+         </div>
+         <div class="face back">
+             <h3>Mas informacion sobre el ODS 15</h3>
+             <div class="text">
+                 <p>El Objetivo de Desarrollo Sostenible 15 pretende conservar la vida de ecosistemas
+                     terrestres,
+                     proteger y restablecer los
+                     ecosistemas,  y luchar contra la deforestación.
+                 </p>
+             </div>
+         </div>
+     </div>
+
+     <div class="carta">
+         <div class="face front">
+             <img src="img/paz-justicia.jpg" alt="">
+             <h3 class="title_ODS16">Paz, justicia e <br> instituciones solidas<i class="fa-solid fa-dove"></i></h3>
+         </div>
+         <div class="face back">
+             <h3>Mas informacion sobre el ODS 16</h3>
+             <div class="text">
+                 <p>El Objetivo de Desarrollo Sostenible 16 pretende pormover sociedades pacificas e
+                     inclusivas,
+                     facilitar el acceso a la justicia para toda la población y crear instituciones eficaces.
+                 </p>
+             </div>
+         </div>
+     </div>
+ </div>
+<!--Fin de la seccion de los ODS 13 al 16-->
+
+<!--Ultima seccion ODS 17-->
+ <div class="fila">
+     <div class="carta">
+         <div class="face front">
+             <img src="img/alianzas.jpg" alt="">
+             <h3 class="title_ODS17">Alianzas para lograr <br>los objetivos<i class="fa-solid fa-earth-asia"></i></h3>
+         </div>
+         <div class="face back">
+             <h3>Mas informacion sobre el ODS 17</h3>
+             <div class="text">
+                 <p>El Objetivo de Desarrollo Sostenible 17 pretende revitalizar la alianza
+                     mundial para el desarrollo sostenible y exige la implicación de todos los paises,
+                     para que nadie se quede atras.
+                 </p>
+             </div>
+         </div>
+     </div>
+ </div>
+ <!--Fin de la seccion ODS 17-->
+<!--Fin | Los 17 oDS-->
+
+        <!--INiCIO SECIION HSITORIA DE LOS ODS-->
+
+    <div class="container_historiaODS">
+
+        <div class="histotia_imagen">
+            <figure>
+                <img src="img/histotia_ODS.jpg" alt="">
         </div>
-        <script src="/JS/index.js"></script>
-
-        <!--Historia de los ODS-->
-        <div class="Segmento4">
-            <div class="contenedor_historia">
-                <div class="imagenes_histoia">
-                    <img src="./img/onu-ods.jpg">
-                    <img src="./img/1que-son-ODS.jpg">
-                </div>
-                <div class="texto-historia">
-                    <h2>Historia de Los ODS <i class="fa-solid fa-landmark"></i></h2>
-                    <p>Los Objetivos de Desarrollo Sostenible(ODS) son 17 y surgen a raíz de la Cumbre de las Naciones
-                        Unidas
-                        sobre el Desarrollo Sostenible, celebrada del 25 al 27 de septiembre de 2015 en Nueva York.
-                        Como Producto de esta cimbre, la Asanblea General de las Nacione Unidas aprobó los objetivos
-                        en un documento de cuarenta páginas titulado "Trasnformar nuestro mundo", que mas adelante seria
-                        conocido
-                        como:
-                        Agenda 2030. <br>
-                        Tiempo atrás, desde 1992 en la Conferencia de las Naciones Unidas sobre el ambiente y desarrollo
-                        de
-                        Río de
-                        Janeiro, se estaba hablando
-                        ya de una agenda, "La Agenda 21", con la cual se abordara los problemas urgentes y se prepararía
-                        al
-                        mundo
-                        para el siglo21.
-                    </p>
-                    <br>
-                    <p>
-                        La Conferencia de las Naciones Unidas sobre el Desarrollo Sostenible, desarrollada en Río de
-                        Janeiro
-                        en junio de
-                        2012, organizo
-                        un proceso para fomentar la adopción de un nuevo cuerpo de Objetivos de Desarrollo Sostenible
-                        (ODS)
-                        que buscaban
-                        continuar con el impulso genrado por los ODM, pero dentro de un marco global de desarrollo más
-                        alla
-                        del 2015.
-                    </p>
-                    <br>
-                    <p>
-                        Para poder crear una nueva agenda de desarrollo que tubiera como eje central a las
-                        personas, se realizo una consulta global, tanto online como por medios tradicionales.
-                    </p>
-                    <br>
-                    <p>
-                        De esta forma, organizaciones de la sociedad civil, ciudadanos de a pie, científicos, académicos
-                        y
-                        representantes
-                        del sector privado de todo el mundo fueron pprotagonistas del proceso de elaboración del nuevo
-                        porgrama.
-                    </p>
-                </div>
-            </div>
+        </figure>
+        <div class="text_historia">
+            <h3>Historia de los ODS <i class="fa-solid fa-landmark"></i></h3>
+            <p>Los Objetivos de Desarrollo Sostenible(ODS) son 17 y surgen a raíz de la Cumbre de las Naciones
+                Unidas
+                sobre el Desarrollo Sostenible, celebrada del 25 al 27 de septiembre de 2015 en Nueva York.
+                Como Producto de esta cimbre, la Asanblea General de las Nacione Unidas aprobó los objetivos
+                en un documento de cuarenta páginas titulado "Trasnformar nuestro mundo", que mas adelante seria
+                conocido
+                como:
+                Agenda 2030. <br>
+                Tiempo atrás, desde 1992 en la Conferencia de las Naciones Unidas sobre el ambiente y desarrollo
+                de
+                Río de
+                Janeiro, se estaba hablando
+                ya de una agenda, "La Agenda 21", con la cual se abordara los problemas urgentes y se prepararía
+                al
+                mundo
+                para el siglo21.
+            </p>
+            <br>
+            <p class="text_extra">
+                La Conferencia de las Naciones Unidas sobre el Desarrollo Sostenible, desarrollada en Río de
+                Janeiro
+                en junio de
+                2012, organizo
+                un proceso para fomentar la adopción de un nuevo cuerpo de Objetivos de Desarrollo Sostenible
+                (ODS)
+                que buscaban
+                continuar con el impulso genrado por los ODM, pero dentro de un marco global de desarrollo más
+                alla
+                del 2015.
+            </p>
+            <br>
+            <p class="text_extra">
+                Para poder crear una nueva agenda de desarrollo que tubiera como eje central a las
+                personas, se realizo una consulta global, tanto online como por medios tradicionales.
+            </p>
+            <br>
+            <p class="text_extra">
+                De esta forma, organizaciones de la sociedad civil, ciudadanos de a pie, científicos, académicos
+                y
+                representantes
+                del sector privado de todo el mundo fueron pprotagonistas del proceso de elaboración del nuevo
+                programa.
+            </p>
+            <input type="checkbox" id="btn">
+            <label for="btn"></label>
         </div>
 
+    </div>
+<!--FIN | Historia de los ODS-->
 
-         <!-- Carrusel - Importancia de los ODs-->
-         <div class="segmento5">
-            <h2>Importancia de los ODS para un mundo mejor</h2>
-        </div>
+        
 
+       <!--INICIO | IMPORTANCIA DE LOS ODS-->
+       <div class="Titulo_Importancia">
+        <h2>Importancia de los ODS para un mundo mejor</h2>
+    </div>
+
+    <div class="contenedor_general">
         <div class="slide_container">
             <div class="slides active">
-                <img src="./img/desarrollo-sostenible.jpg" alt="imagen slide 1">
-                <div class="text" style="text-align: center;">
-                    <h3>Desarrollo sostenible Integral</h3>
-                    <p>Los ODS abordan de manera holística los desafíos sociales, económicos y ambientales, promoviendo un
+                <img src="img/desarrollo-sostenible.jpg" alt="imagen slide 1">
+                <div class="text">
+                    <h3>Desarrollo Integral</h3>
+                    <p>Los ODS abordan de manera holística los desafíos sociales, económicos y ambientales, promoviendo
+                        un
                         desarrollo equilibrado que beneficia a las personas y al planeta.</p>
                 </div>
             </div>
             <div class="slides">
-                <img src="./img/inovacion-crecimiento-economico.jpg" alt="imagen slide 1">
-                <div class="text" style="text-align: center;">
-                    <h3>Innovación y Crecimiento Economico</h3>
-                    <p>los ODS buscan mejorar las condiciones de vida y garantizar que todas las personas tengan acceso a
+                <img src="img/inovacion-crecimiento-economico.jpg" alt="imagen slide 1">
+                <div class="text">
+                    <h3>Crecimiento Economico</h3>
+                    <p>los ODS buscan mejorar las condiciones de vida y garantizar que todas las personas tengan acceso
+                        a
                         servicios básicos.</p>
                 </div>
             </div>
             <div class="slides">
-                <img src="./img/calidad-vida.jpg" alt="imagen slide 1">
-                <div class="text" style="text-align: center;">
+                <img src="img/calidad-vida.jpg" alt="imagen slide 1">
+                <div class="text">
                     <h3>Mejora de la calidad de Vida</h3>
-                    <p>Algunos ODS están dedicados a promover sociedades pacíficas e inclusivas, lo cual es fundamental para
+                    <p>Algunos ODS están dedicados a promover sociedades pacíficas e inclusivas, lo cual es fundamental
+                        para
                         el desarrollo sostenible y la estabilidad global.</p>
                 </div>
             </div>
             <div class="slides">
-                <img src="./img/paz-justicia.png" alt="imagen slide 1">
-                <div class="text" style="text-align: center;">
+                <img src="img/paz-justicia.png" alt="imagen slide 1">
+                <div class="text">
                     <h3>Fomento de la paz y la Justicia</h3>
-                    <p>Los ODS impulsan la innovación y el desarrollo de tecnologías sostenibles, lo que puede estimular el
+                    <p>Los ODS impulsan la innovación y el desarrollo de tecnologías sostenibles, lo que puede estimular
+                        el
                         crecimiento económico y crear empleos.</p>
                 </div>
             </div>
             <div class="slides">
-                <img src="./img/responsalididad-compartida.png" alt="imagen slide 1">
-                <div class="text" style="text-align: center;">
+                <img src="img/responsalididad-compartida.png" alt="imagen slide 1">
+                <div class="text">
                     <h3>Responsabilidad compartida</h3>
                     <p>Al establecer metas claras, los ODS fomentan la colaboración entre gobiernos, sector privado y
                         sociedad civil, promoviendo un enfoque colectivo para enfrentar los desafíos globales.</p>
@@ -485,39 +574,61 @@
                 <div class="btn"></div>
             </div>
         </div>
+    </div>
 
-       <script src="/JS/carrusel.js"></script>
+    <script src="js/carrusel.js"></script>
+   <!--FIN | Importancia de los ODS-->
 
 
-    <!--Footer de la pagina web-->
-    <footer>
-        <div class="container-footer">
-            <div class="footer-row">
-
-                <div class="ONU">
-                    <img src="./img/SDG_website_banner_S_100px-removebg-preview.png" width="200">
-                </div>
-                <div class="fooeter-info">
-                    <h5>Información</h5>
-                    <ul>
-                        <li><a href="#">Equipo de desarrollo</a></li>
-                        <li><a href="#">Infomarcion adicional</a></li>
-                        <li><a href="#">Contactanos</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-contactos">
-                    <h5>Siguenos en nuestras redes sociales:</h5>
-                    <div class="social">
-                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fab fa-x-twitter"></i></a></li>
-                    </div>
-
-                </div>
+        <!-- INICIO | Estructura efecto boton de retorno navegacion-->
+        <div class="go-top-container">
+            <div class="go-top-button">
+                <i class="fas fa-chevron-up"></i>
             </div>
         </div>
-    </footer>
+        <script src="js/botonRetorno.js"></script>
+        <!-- FIN | Estructura efecto boton de retorno navegacion-->
+
+
+   <!--INICIO | Footer de ka pagina-->
+
+   <footer class="pie_pagina">
+    <div class="grupo_1">
+        <div class="box">
+            <figure>
+                <img src="img/logo_ecolluviaSolution_blanco.png" alt="">
+            </figure>
+        </div>
+        <div class="box">
+            <h3>Contactanos</h3>
+            <a href="#"><i class="fa-solid fa-location-dot"></i>2 de Mayo 437-247. Imperial 15701</a>
+            <a href="#"><i class="fa-solid fa-phone-volume"></i>+51 923 463 263</a>
+            <a href="#"><i class="fa-solid fa-envelope"></i>ecolluviasolutions@gmail.com</a>
+        </div>
+        <div class="box">
+            <h3>Links Rapidos</h3>
+            <a href="contactanos.html"><i class="fa-solid fa-chevron-right"></i>Equipo de desarrollo</a>
+            <a href="contactanos.html"><i class="fa-solid fa-chevron-right"></i>Donacion</a>
+        </div>
+        <div class="box_links">
+            <h3>Siguenos en Nuestras redes</h3>
+            <div class="links_sociales">
+                <a href="https://www.facebook.com/?locale=es_LA" target="_blank"><i
+                        class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2F&hl=es-es&aa_click=8891933284028179"
+                    target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://x.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoiZXMiLCJteCI6IjIifQ%3D%3D%22%7D"
+                    target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                <a href="https://www.tiktok.com/foryou?lang=es" target="_blank"><i
+                        class="fa-brands fa-tiktok"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="copyrigtht">
+        <small>Copyrigtht &copy; 2024 <b>Valle Grande</b> - Todos los Derechos Reservados</small>
+    </div>
+</footer>
+<!--FIN | footer de la pagina-->
 
 
 </body>
