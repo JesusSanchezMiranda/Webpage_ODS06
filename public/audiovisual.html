@@ -210,33 +210,16 @@
     <!--FIN | Estructura de la Galeria de fotos del ODS 06-->
 
     <!--Inicio, calendario-->
-        <div class="main_containerCalendar">
-            <h1>Calendario de ODS 6: Agua Limpia y Saneamiento</h1>
-            <div class="calendar-container">
-            <div class="calendar">
-                <div class="calendar-header">
-                    <button id="prevMonth">❮</button>
-                    <h2 id="monthYear"></h2>
-                    <button id="nextMonth">❯</button>
-                </div>
-                <div class="calendar-days">
-                    <div class="day">Dom</div>
-                    <div class="day">Lun</div>
-                    <div class="day">Mar</div>
-                    <div class="day">Mié</div>
-                    <div class="day">Jue</div>
-                    <div class="day">Vie</div>
-                    <div class="day">Sáb</div>
-                </div>
-                <div id="calendarDates" class="calendar-dates"></div>
-            </div>
-            <div id="infoPanel" class="info-panel">
-                <h3>Día seleccionado</h3>
-                <p id="infoContent">Selecciona una fecha para ver información sobre el ODS 6.</p>
-            </div>
-        </div>
+    <div id="calendar">
+        <h2>Calendario de Fechas del ODS 06</h2>
+        <button id="prevMonth">←</button>
+        <span id="monthYear"></span>
+        <button id="nextMonth">→</button>
+        <div id="calendarDates" class="calendar"></div>
+        <div id="infoContent">Cargando información...</div>
+        <script src="/js/calendario.js"></script>
+        <script src="calendario.css"></script>
     </div>
-        <script src="js/calendario.js"></script>
     <!--Fin del calendario-->
 
     <!--Linea de Tiempo-->

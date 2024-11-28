@@ -1,65 +1,69 @@
-const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-let selectedDate;
-let currentMonth = new Date().getMonth();
-let currentYear = new Date().getFullYear();
-
-const monthYear = document.getElementById("monthYear");
 const calendarDates = document.getElementById("calendarDates");
-const infoPanel = document.getElementById("infoContent");
+const monthYear = document.getElementById("monthYear");
+const prevMonth = document.getElementById("prevMonth");
+const nextMonth = document.getElementById("nextMonth");
+const infoContent = document.getElementById("infoContent");
 
-const updateCalendar = () => {
-    calendarDates.innerHTML = "";
-    monthYear.textContent = `${monthNames[currentMonth]} ${currentYear}`;
+let currentDate = new Date();
+const apiURL = "http://localhost:3000/evento"; // Endpoint para obtener el evento de la fecha, colocar la IP de tu instancia en el localhost
 
-    const firstDay = new Date(currentYear, currentMonth, 1).getDay();
-    const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+function renderCalendar() {
+    calendarDates.innerHTML = ""; // Limpiar el calendario previo
 
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth();
+
+    const firstDay = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    monthYear.textContent = currentDate.toLocaleString("default", {
+        month: "long",
+        year: "numeric",
+    });
+
+    // Agregar los días en el calendario
     for (let i = 0; i < firstDay; i++) {
-        calendarDates.innerHTML += `<div></div>`;
+        const emptyDiv = document.createElement("div");
+        calendarDates.appendChild(emptyDiv); // Espacios vacíos antes del primer día del mes
     }
 
     for (let day = 1; day <= daysInMonth; day++) {
         const dateDiv = document.createElement("div");
-        dateDiv.className = "date";
+        dateDiv.classList.add("date");
         dateDiv.textContent = day;
-        dateDiv.addEventListener("click", () => selectDate(day));
+
+        // Al hacer clic en un día del calendario
+        dateDiv.addEventListener("click", () => {
+            // Resaltar el día seleccionado
+            document.querySelectorAll(".date").forEach((d) => d.classList.remove("selected"));
+            dateDiv.classList.add("selected");
+
+            const selectedDate = `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+
+            // Realizar la solicitud para obtener el evento de la fecha seleccionada
+            fetch(`${apiURL}?fecha=${selectedDate}`)
+                .then((response) => response.json())
+                .then((data) => {
+                    // Mostrar el evento si existe, o un mensaje si no hay evento para esa fecha
+                    infoContent.textContent = data.evento || "No hay eventos para esta fecha.";
+                })
+                .catch(() => {
+                    infoContent.textContent = "Error al obtener los eventos.";
+                });
+        });
+
         calendarDates.appendChild(dateDiv);
     }
-};
+}
 
-const selectDate = (day) => {
-    document.querySelectorAll(".date").forEach(date => date.classList.remove("selected"));
-    selectedDate = day;
-    document.querySelectorAll(".date")[day + new Date(currentYear, currentMonth, 1).getDay() - 1].classList.add("selected");
-    infoPanel.textContent = `Día ${day} - ${getODS6Message(day)}`;
-};
-
-const getODS6Message = (day) => {
-    const messages = [
-        "Recuerda ahorrar agua en tu día a día.",
-        "Evita tirar basura en los cuerpos de agua.",
-        "Promueve el acceso al agua potable.",
-        "Ahorra agua cerrando bien los grifos.",
-        "Evita el uso de productos químicos.",
-        "Educa a otros sobre la importancia del agua limpia.",
-        "Contribuye a proyectos de saneamiento.",
-        "Reduce el consumo de agua en el hogar.",
-        "Recuerda el objetivo de agua limpia y saneamiento.",
-        "Participa en campañas para mejorar el agua.",
-    ];
-    return messages[day % messages.length];
-};
-
-document.getElementById("prevMonth").addEventListener("click", () => {
-    currentMonth = currentMonth === 0 ? 11 : currentMonth - 1;
-    currentYear = currentMonth === 11 ? currentYear - 1 : currentYear;
-    updateCalendar();
+prevMonth.addEventListener("click", () => {
+    currentDate.setMonth(currentDate.getMonth() - 1);
+    renderCalendar();
 });
 
-document.getElementById("nextMonth").addEventListener("click", () => {
-    currentMonth = currentMonth === 11 ? 0 : currentMonth + 1;
-    currentYear = currentMonth === 0 ? currentYear + 1 : currentYear;
-    updateCalendar();
+nextMonth.addEventListener("click", () => {
+    currentDate.setMonth(currentDate.getMonth() + 1);
+    renderCalendar();
 });
 
-updateCalendar();
+renderCalendar();
